@@ -1,0 +1,6 @@
+{
+  "name": "Ladies Garments Comfort",
+  "description": "Premium women's fashion e-commerce platform offering luxury everyday comfort, modest pret, kurtis, suits, and modern western wear with seamless ordering and order tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

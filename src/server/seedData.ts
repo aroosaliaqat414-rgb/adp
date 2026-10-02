@@ -1,0 +1,1231 @@
+import crypto from 'crypto';
+
+export function seedDatabase() {
+  const hash = (pass: string) => crypto.createHash('sha256').update(pass).digest('hex');
+
+  const categories = [
+    {
+      id: 'cat_new',
+      name: 'New Arrivals',
+      slug: 'new-arrivals',
+      description: 'Fresh seasonal drops featuring pure breathable fabrics and refined silhouettes.',
+      image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=800&auto=format&fit=crop&q=80',
+      order: 1,
+      isActive: true
+    },
+    {
+      id: 'cat_pret',
+      name: 'Luxury Pret',
+      slug: 'luxury-pret',
+      description: 'Exquisite statement ensembles crafted with fine threadwork, organza laces, and pure raw silk.',
+      image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800&auto=format&fit=crop&q=80',
+      order: 2,
+      isActive: true
+    },
+    {
+      id: 'cat_threepiece',
+      name: 'Three-Piece Suits',
+      slug: 'three-piece-suits',
+      description: 'Complete unstitched & ready-to-wear suites with embroidered shirts, trousers, and digital chiffon dupattas.',
+      image: 'https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=800&auto=format&fit=crop&q=80',
+      order: 3,
+      isActive: true
+    },
+    {
+      id: 'cat_twopiece',
+      name: 'Two-Piece Suits',
+      slug: 'two-piece-suits',
+      description: 'Chic everyday co-ords and matching shirt-trouser sets engineered for effortless comfort.',
+      image: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=800&auto=format&fit=crop&q=80',
+      order: 4,
+      isActive: true
+    },
+    {
+      id: 'cat_kurtis',
+      name: 'Kurtis',
+      slug: 'kurtis',
+      description: 'Contemporary tunics and traditional kurtis in breathable cotton lawn and jacquard.',
+      image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800&auto=format&fit=crop&q=80',
+      order: 5,
+      isActive: true
+    },
+    {
+      id: 'cat_casual',
+      name: 'Casual Wear',
+      slug: 'casual-wear',
+      description: 'Breezy everyday kurtas, solids, and relaxed loungewear for warm weather relaxation.',
+      image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&auto=format&fit=crop&q=80',
+      order: 6,
+      isActive: true
+    },
+    {
+      id: 'cat_formal',
+      name: 'Formal Wear',
+      slug: 'formal-wear',
+      description: 'Heavy festive formals with hand-embellished zari, pearls, and pure chiffon borders.',
+      image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=800&auto=format&fit=crop&q=80',
+      order: 7,
+      isActive: true
+    },
+    {
+      id: 'cat_western',
+      name: 'Western Wear',
+      slug: 'western-wear',
+      description: 'Modern tailored shirts, oversized tops, maxi skirts, and modish casual outerwear.',
+      image: 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&auto=format&fit=crop&q=80',
+      order: 8,
+      isActive: true
+    },
+    {
+      id: 'cat_dresses',
+      name: 'Dresses',
+      slug: 'dresses',
+      description: 'Graceful flowy anarkalis, kaftans, and tiered midi dresses.',
+      image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&auto=format&fit=crop&q=80',
+      order: 9,
+      isActive: true
+    },
+    {
+      id: 'cat_sale',
+      name: 'Sale',
+      slug: 'sale',
+      description: 'Exclusive seasonal markdowns up to 40% off across popular collections.',
+      image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&auto=format&fit=crop&q=80',
+      order: 10,
+      isActive: true
+    }
+  ];
+
+  const collections = [
+    {
+      id: 'col_festive',
+      name: 'Noor-e-Bahar Festive Edit',
+      slug: 'noor-e-bahar',
+      description: 'Pastel silks, floral embroidery, and scalloped dupattas designed for intimate gatherings.',
+      bannerImage: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=1600&auto=format&fit=crop&q=80',
+      isActive: true
+    },
+    {
+      id: 'col_comfort',
+      name: 'Daily Comfort Lawn Series',
+      slug: 'daily-comfort-lawn',
+      description: 'Super-combed 80/80 luxury lawn with lightweight drape that breathes through summer.',
+      bannerImage: 'https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=1600&auto=format&fit=crop&q=80',
+      isActive: true
+    }
+  ];
+
+  const products = [
+    {
+      id: 'prod_1',
+      name: 'Gul-e-Maryam Embroidered 3-Piece Lawn',
+      slug: 'gul-e-maryam-embroidered-3-piece-lawn',
+      description: 'A masterpiece of classic elegance. This 3-piece suit features delicate thread embroidery on the neckline and daman, complemented by a digitally printed pure silk dupatta and dyed cambric trousers. Crafted from premium 80/80 combed lawn to ensure unmatched comfort in warmer climates.',
+      shortDescription: 'Embroidered lawn shirt with digital pure silk dupatta and dyed cambric trouser.',
+      categoryId: 'cat_threepiece',
+      collectionId: 'col_comfort',
+      price: 8450,
+      compareAtPrice: 10500,
+      costPrice: 4200,
+      sku: 'LGC-3P-001',
+      images: [
+        'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=900&auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=900&auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=900&auto=format&fit=crop&q=80'
+      ],
+      status: 'active',
+      isFeatured: true,
+      isNewArrival: true,
+      isBestSeller: true,
+      fabric: '100% Combed Lawn & Silk Dupatta',
+      careInstructions: 'Dry clean recommended. Gentle hand wash inside out in cold water. Iron at medium temperature.',
+      specifications: {
+        'Shirt Fabric': 'Embroidered Lawn (3 Meters)',
+        'Dupatta': 'Digital Pure Silk (2.5 Meters)',
+        'Trouser': 'Dyed Cambric Cotton (2.5 Meters)',
+        'Embroidery': 'Neckline, Sleeves, Daman Laces'
+      },
+      tags: ['Lawn', 'Embroidered', 'Summer', '3 Piece', 'Best Seller'],
+      totalStock: 32,
+      lowStockThreshold: 5,
+      averageRating: 4.9,
+      reviewCount: 14,
+      createdAt: new Date(Date.now() - 10 * 86400000).toISOString(),
+      updatedAt: new Date().toISOString(),
+      variants: [
+        {
+          id: 'var_prod_1_s',
+          productId: 'prod_1',
+          title: 'Lilac Dusk / S',
+          size: 'S',
+          color: 'Lilac Dusk',
+          colorHex: '#8E1EA2',
+          sku: 'LGC-3P-001-LIL-S',
+          price: 8450,
+          compareAtPrice: 10500,
+          stockQuantity: 8,
+          isAvailable: true
+        },
+        {
+          id: 'var_prod_1_m',
+          productId: 'prod_1',
+          title: 'Lilac Dusk / M',
+          size: 'M',
+          color: 'Lilac Dusk',
+          colorHex: '#8E1EA2',
+          sku: 'LGC-3P-001-LIL-M',
+          price: 8450,
+          compareAtPrice: 10500,
+          stockQuantity: 12,
+          isAvailable: true
+        },
+        {
+          id: 'var_prod_1_l',
+          productId: 'prod_1',
+          title: 'Lilac Dusk / L',
+          size: 'L',
+          color: 'Lilac Dusk',
+          colorHex: '#8E1EA2',
+          sku: 'LGC-3P-001-LIL-L',
+          price: 8450,
+          compareAtPrice: 10500,
+          stockQuantity: 9,
+          isAvailable: true
+        },
+        {
+          id: 'var_prod_1_xl',
+          productId: 'prod_1',
+          title: 'Lilac Dusk / XL',
+          size: 'XL',
+          color: 'Lilac Dusk',
+          colorHex: '#8E1EA2',
+          sku: 'LGC-3P-001-LIL-XL',
+          price: 8450,
+          compareAtPrice: 10500,
+          stockQuantity: 3,
+          isAvailable: true
+        }
+      ]
+    },
+    {
+      id: 'prod_2',
+      name: 'Rose Quartz Raw Silk Luxury Pret Kurti',
+      slug: 'rose-quartz-raw-silk-luxury-pret-kurti',
+      description: 'Step into understated glamour with our Rose Quartz raw silk kurti. Features intricate hand-embellished pearl buttons, scallop-finished organza cuffs, and a flattering A-line silhouette with generous pocket details.',
+      shortDescription: 'Pure raw silk kurti with pearl embellishments and organza sleeve details.',
+      categoryId: 'cat_pret',
+      collectionId: 'col_festive',
+      price: 6850,
+      compareAtPrice: 7950,
+      costPrice: 3200,
+      sku: 'LGC-PR-002',
+      images: [
+        'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=900&auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=900&auto=format&fit=crop&q=80'
+      ],
+      status: 'active',
+      isFeatured: true,
+      isNewArrival: true,
+      isBestSeller: true,
+      fabric: 'Pure 60g Raw Silk',
+      careInstructions: 'Dry clean only. Do not bleach. Steam iron on reverse.',
+      specifications: {
+        'Silhouette': 'Straight Relaxed Fit',
+        'Neckline': 'Band Collar with Pearl Accents',
+        'Sleeves': 'Full Sleeves with Organza Trim',
+        'Length': '42 Inches'
+      },
+      tags: ['Luxury Pret', 'Silk', 'Pink', 'Kurti', 'Festive'],
+      totalStock: 25,
+      lowStockThreshold: 4,
+      averageRating: 4.8,
+      reviewCount: 9,
+      createdAt: new Date(Date.now() - 8 * 86400000).toISOString(),
+      updatedAt: new Date().toISOString(),
+      variants: [
+        {
+          id: 'var_prod_2_xs',
+          productId: 'prod_2',
+          title: 'Soft Blush / XS',
+          size: 'XS',
+          color: 'Soft Blush',
+          colorHex: '#ED96D7',
+          sku: 'LGC-PR-002-BLU-XS',
+          price: 6850,
+          compareAtPrice: 7950,
+          stockQuantity: 4,
+          isAvailable: true
+        },
+        {
+          id: 'var_prod_2_s',
+          productId: 'prod_2',
+          title: 'Soft Blush / S',
+          size: 'S',
+          color: 'Soft Blush',
+          colorHex: '#ED96D7',
+          sku: 'LGC-PR-002-BLU-S',
+          price: 6850,
+          compareAtPrice: 7950,
+          stockQuantity: 7,
+          isAvailable: true
+        },
+        {
+          id: 'var_prod_2_m',
+          productId: 'prod_2',
+          title: 'Soft Blush / M',
+          size: 'M',
+          color: 'Soft Blush',
+          colorHex: '#ED96D7',
+          sku: 'LGC-PR-002-BLU-M',
+          price: 6850,
+          compareAtPrice: 7950,
+          stockQuantity: 10,
+          isAvailable: true
+        },
+        {
+          id: 'var_prod_2_l',
+          productId: 'prod_2',
+          title: 'Soft Blush / L',
+          size: 'L',
+          color: 'Soft Blush',
+          colorHex: '#ED96D7',
+          sku: 'LGC-PR-002-BLU-L',
+          price: 6850,
+          compareAtPrice: 7950,
+          stockQuantity: 4,
+          isAvailable: true
+        }
+      ]
+    },
+    {
+      id: 'prod_3',
+      name: 'Zaffran Printed 2-Piece Linen Co-Ord Set',
+      slug: 'zaffran-printed-2-piece-linen-co-ord-set',
+      description: 'The epitome of easy chic. A matching bandhgala collared tunic paired with cigarette trousers tailored from breathable slub linen. Boasts artisanal block-print motifs in rich jewel tones.',
+      shortDescription: 'Printed breathable linen matching tunic and trouser co-ord set.',
+      categoryId: 'cat_twopiece',
+      price: 4950,
+      compareAtPrice: 5950,
+      costPrice: 2400,
+      sku: 'LGC-2P-003',
+      images: [
+        'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=900&auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=900&auto=format&fit=crop&q=80'
+      ],
+      status: 'active',
+      isFeatured: true,
+      isNewArrival: false,
+      isBestSeller: true,
+      fabric: 'Textured Slub Linen',
+      careInstructions: 'Machine wash delicate cold. Dry in shade.',
+      specifications: {
+        'Includes': 'Tunic & Cigarette Pants',
+        'Pockets': 'Dual side seam pockets',
+        'Waistband': 'Half elasticated comfort waist'
+      },
+      tags: ['Co-ord', 'Two Piece', 'Linen', 'Comfort', 'Everyday'],
+      totalStock: 18,
+      lowStockThreshold: 4,
+      averageRating: 5.0,
+      reviewCount: 11,
+      createdAt: new Date(Date.now() - 14 * 86400000).toISOString(),
+      updatedAt: new Date().toISOString(),
+      variants: [
+        {
+          id: 'var_prod_3_s',
+          productId: 'prod_3',
+          title: 'Royal Ochre / S',
+          size: 'S',
+          color: 'Royal Ochre',
+          colorHex: '#C654C3',
+          sku: 'LGC-2P-003-OCH-S',
+          price: 4950,
+          compareAtPrice: 5950,
+          stockQuantity: 5,
+          isAvailable: true
+        },
+        {
+          id: 'var_prod_3_m',
+          productId: 'prod_3',
+          title: 'Royal Ochre / M',
+          size: 'M',
+          color: 'Royal Ochre',
+          colorHex: '#C654C3',
+          sku: 'LGC-2P-003-OCH-M',
+          price: 4950,
+          compareAtPrice: 5950,
+          stockQuantity: 8,
+          isAvailable: true
+        },
+        {
+          id: 'var_prod_3_l',
+          productId: 'prod_3',
+          title: 'Royal Ochre / L',
+          size: 'L',
+          color: 'Royal Ochre',
+          colorHex: '#C654C3',
+          sku: 'LGC-2P-003-OCH-L',
+          price: 4950,
+          compareAtPrice: 5950,
+          stockQuantity: 5,
+          isAvailable: true
+        }
+      ]
+    },
+    {
+      id: 'prod_4',
+      name: 'Nilofer Handcrafted Chiffon Formal Maxi',
+      slug: 'nilofer-handcrafted-chiffon-formal-maxi',
+      description: 'An ethereal floor-length formal maxi dressed in shimmering silver tilla, sequins, and mirror-work. Features a flowing kalidar flare with pure grip lining and an accompanying embroidered dupatta.',
+      shortDescription: 'Heavy festive chiffon kalidar maxi with tilla and sequin embroidery.',
+      categoryId: 'cat_formal',
+      collectionId: 'col_festive',
+      price: 16500,
+      compareAtPrice: 19500,
+      costPrice: 8500,
+      sku: 'LGC-FM-004',
+      images: [
+        'https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=900&auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=900&auto=format&fit=crop&q=80'
+      ],
+      status: 'active',
+      isFeatured: true,
+      isNewArrival: true,
+      isBestSeller: false,
+      fabric: 'Pure Crinkle Chiffon with Silk Lining',
+      careInstructions: 'Strictly dry clean only. Store in protective garment bag.',
+      specifications: {
+        'Flare': '120 Inches Circular Kalidar',
+        'Embellishments': 'Silver Tilla, Pearls, Cut-dana',
+        'Includes': 'Embroidered Maxi & Chiffon Dupatta'
+      },
+      tags: ['Formal', 'Wedding', 'Maxi', 'Chiffon', 'Festive'],
+      totalStock: 12,
+      lowStockThreshold: 3,
+      averageRating: 5.0,
+      reviewCount: 6,
+      createdAt: new Date(Date.now() - 5 * 86400000).toISOString(),
+      updatedAt: new Date().toISOString(),
+      variants: [
+        {
+          id: 'var_prod_4_s',
+          productId: 'prod_4',
+          title: 'Orchid Purple / S',
+          size: 'S',
+          color: 'Orchid Purple',
+          colorHex: '#8E1EA2',
+          sku: 'LGC-FM-004-ORC-S',
+          price: 16500,
+          compareAtPrice: 19500,
+          stockQuantity: 3,
+          isAvailable: true
+        },
+        {
+          id: 'var_prod_4_m',
+          productId: 'prod_4',
+          title: 'Orchid Purple / M',
+          size: 'M',
+          color: 'Orchid Purple',
+          colorHex: '#8E1EA2',
+          sku: 'LGC-FM-004-ORC-M',
+          price: 16500,
+          compareAtPrice: 19500,
+          stockQuantity: 6,
+          isAvailable: true
+        },
+        {
+          id: 'var_prod_4_l',
+          productId: 'prod_4',
+          title: 'Orchid Purple / L',
+          size: 'L',
+          color: 'Orchid Purple',
+          colorHex: '#8E1EA2',
+          sku: 'LGC-FM-004-ORC-L',
+          price: 16500,
+          compareAtPrice: 19500,
+          stockQuantity: 3,
+          isAvailable: true
+        }
+      ]
+    },
+    {
+      id: 'prod_5',
+      name: 'Aafreen Everyday Embroidered Cotton Kurti',
+      slug: 'aafreen-everyday-embroidered-cotton-kurti',
+      description: 'Designed specifically for the modern working woman who values style and comfort equally. 100% fine cotton with minimal chikankari neck motifs, relaxed sleeves, and breathable weave.',
+      shortDescription: 'Minimalist embroidered everyday cotton kurti with relaxed fit.',
+      categoryId: 'cat_kurtis',
+      price: 3650,
+      compareAtPrice: 4200,
+      costPrice: 1800,
+      sku: 'LGC-KU-005',
+      images: [
+        'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=900&auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=900&auto=format&fit=crop&q=80'
+      ],
+      status: 'active',
+      isFeatured: false,
+      isNewArrival: false,
+      isBestSeller: true,
+      fabric: '100% Fine Organic Cotton',
+      careInstructions: 'Hand wash with mild detergent. Iron when slightly damp.',
+      specifications: {
+        'Style': 'Straight Cut Tunic',
+        'Details': 'Chikankari Threadwork',
+        'Neck': 'V-Neck with delicate buttons'
+      },
+      tags: ['Kurti', 'Casual', 'Cotton', 'Summer'],
+      totalStock: 45,
+      lowStockThreshold: 8,
+      averageRating: 4.7,
+      reviewCount: 19,
+      createdAt: new Date(Date.now() - 20 * 86400000).toISOString(),
+      updatedAt: new Date().toISOString(),
+      variants: [
+        {
+          id: 'var_prod_5_xs',
+          productId: 'prod_5',
+          title: 'Warm Ivory / XS',
+          size: 'XS',
+          color: 'Warm Ivory',
+          colorHex: '#FFC0C0',
+          sku: 'LGC-KU-005-IVO-XS',
+          price: 3650,
+          compareAtPrice: 4200,
+          stockQuantity: 8,
+          isAvailable: true
+        },
+        {
+          id: 'var_prod_5_s',
+          productId: 'prod_5',
+          title: 'Warm Ivory / S',
+          size: 'S',
+          color: 'Warm Ivory',
+          colorHex: '#FFC0C0',
+          sku: 'LGC-KU-005-IVO-S',
+          price: 3650,
+          compareAtPrice: 4200,
+          stockQuantity: 14,
+          isAvailable: true
+        },
+        {
+          id: 'var_prod_5_m',
+          productId: 'prod_5',
+          title: 'Warm Ivory / M',
+          size: 'M',
+          color: 'Warm Ivory',
+          colorHex: '#FFC0C0',
+          sku: 'LGC-KU-005-IVO-M',
+          price: 3650,
+          compareAtPrice: 4200,
+          stockQuantity: 15,
+          isAvailable: true
+        },
+        {
+          id: 'var_prod_5_l',
+          productId: 'prod_5',
+          title: 'Warm Ivory / L',
+          size: 'L',
+          color: 'Warm Ivory',
+          colorHex: '#FFC0C0',
+          sku: 'LGC-KU-005-IVO-L',
+          price: 3650,
+          compareAtPrice: 4200,
+          stockQuantity: 8,
+          isAvailable: true
+        }
+      ]
+    },
+    {
+      id: 'prod_6',
+      name: 'Sorrento Linen Button-Down Shirt & Culottes',
+      slug: 'sorrento-linen-button-down-shirt-culottes',
+      description: 'Sophisticated modern western silhouette tailored from European-grade pure linen. Features dropped shoulders, mother-of-pearl buttons, and wide-leg culottes with elasticated comfort waistband.',
+      shortDescription: 'Pure linen button-down oversized shirt and matching wide-leg culottes.',
+      categoryId: 'cat_western',
+      price: 5850,
+      compareAtPrice: 6900,
+      costPrice: 2800,
+      sku: 'LGC-WS-006',
+      images: [
+        'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=900&auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&auto=format&fit=crop&q=80'
+      ],
+      status: 'active',
+      isFeatured: true,
+      isNewArrival: true,
+      isBestSeller: false,
+      fabric: '100% Breathable European Linen',
+      careInstructions: 'Machine wash cold on gentle. Air dry flat.',
+      specifications: {
+        'Fit': 'Relaxed Oversized',
+        'Collar': 'Classic Spread',
+        'Trousers': 'High-waisted wide leg'
+      },
+      tags: ['Western', 'Linen', 'Culottes', 'Casual'],
+      totalStock: 16,
+      lowStockThreshold: 4,
+      averageRating: 4.9,
+      reviewCount: 5,
+      createdAt: new Date(Date.now() - 3 * 86400000).toISOString(),
+      updatedAt: new Date().toISOString(),
+      variants: [
+        {
+          id: 'var_prod_6_s',
+          productId: 'prod_6',
+          title: 'Dusty Rose / S',
+          size: 'S',
+          color: 'Dusty Rose',
+          colorHex: '#ED96D7',
+          sku: 'LGC-WS-006-ROS-S',
+          price: 5850,
+          compareAtPrice: 6900,
+          stockQuantity: 4,
+          isAvailable: true
+        },
+        {
+          id: 'var_prod_6_m',
+          productId: 'prod_6',
+          title: 'Dusty Rose / M',
+          size: 'M',
+          color: 'Dusty Rose',
+          colorHex: '#ED96D7',
+          sku: 'LGC-WS-006-ROS-M',
+          price: 5850,
+          compareAtPrice: 6900,
+          stockQuantity: 8,
+          isAvailable: true
+        },
+        {
+          id: 'var_prod_6_l',
+          productId: 'prod_6',
+          title: 'Dusty Rose / L',
+          size: 'L',
+          color: 'Dusty Rose',
+          colorHex: '#ED96D7',
+          sku: 'LGC-WS-006-ROS-L',
+          price: 5850,
+          compareAtPrice: 6900,
+          stockQuantity: 4,
+          isAvailable: true
+        }
+      ]
+    },
+    {
+      id: 'prod_7',
+      name: 'Shehrbano Hand-Loom Jacquard 2-Piece Suit',
+      slug: 'shehrbano-hand-loom-jacquard-2-piece-suit',
+      description: 'Woven with gold and magenta threads on fine self-textured jacquard. Includes a flared frock style shirt with handcrafted tassels and matching dyed trousers.',
+      shortDescription: 'Self-textured handloom jacquard frock with dyed cigarette trousers.',
+      categoryId: 'cat_twopiece',
+      price: 5450,
+      compareAtPrice: 6500,
+      costPrice: 2600,
+      sku: 'LGC-2P-007',
+      images: [
+        'https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=900&auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=900&auto=format&fit=crop&q=80'
+      ],
+      status: 'active',
+      isFeatured: false,
+      isNewArrival: false,
+      isBestSeller: true,
+      fabric: 'Gold Weft Cotton Jacquard',
+      careInstructions: 'Dry clean recommended to preserve gold metallic threads.',
+      specifications: {
+        'Shirt Style': 'A-Line Frock',
+        'Trouser': 'Tapered fit with lace detail',
+        'Lining': 'Breathable cotton mulmul lining'
+      },
+      tags: ['Jacquard', 'Two Piece', 'Festive', 'Gold'],
+      totalStock: 22,
+      lowStockThreshold: 5,
+      averageRating: 4.8,
+      reviewCount: 8,
+      createdAt: new Date(Date.now() - 12 * 86400000).toISOString(),
+      updatedAt: new Date().toISOString(),
+      variants: [
+        {
+          id: 'var_prod_7_s',
+          productId: 'prod_7',
+          title: 'Deep Plum / S',
+          size: 'S',
+          color: 'Deep Plum',
+          colorHex: '#8E1EA2',
+          sku: 'LGC-2P-007-PLU-S',
+          price: 5450,
+          compareAtPrice: 6500,
+          stockQuantity: 6,
+          isAvailable: true
+        },
+        {
+          id: 'var_prod_7_m',
+          productId: 'prod_7',
+          title: 'Deep Plum / M',
+          size: 'M',
+          color: 'Deep Plum',
+          colorHex: '#8E1EA2',
+          sku: 'LGC-2P-007-PLU-M',
+          price: 5450,
+          compareAtPrice: 6500,
+          stockQuantity: 10,
+          isAvailable: true
+        },
+        {
+          id: 'var_prod_7_l',
+          productId: 'prod_7',
+          title: 'Deep Plum / L',
+          size: 'L',
+          color: 'Deep Plum',
+          colorHex: '#8E1EA2',
+          sku: 'LGC-2P-007-PLU-L',
+          price: 5450,
+          compareAtPrice: 6500,
+          stockQuantity: 6,
+          isAvailable: true
+        }
+      ]
+    },
+    {
+      id: 'prod_8',
+      name: 'Zara Embroidered Tiered Kaftan Gown',
+      slug: 'zara-embroidered-tiered-kaftan-gown',
+      description: 'Sensational flow and dramatic drape. A tiered bohemian kaftan gown with intricate neck zari work and adjustable interior waist tie. Perfect for dinner parties and summer evening soirees.',
+      shortDescription: 'Flowing tiered georgette kaftan gown with gold zari border accents.',
+      categoryId: 'cat_dresses',
+      price: 7200,
+      compareAtPrice: 8500,
+      costPrice: 3500,
+      sku: 'LGC-DR-008',
+      images: [
+        'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900&auto=format&fit=crop&q=80'
+      ],
+      status: 'active',
+      isFeatured: true,
+      isNewArrival: false,
+      isBestSeller: false,
+      fabric: 'Fine Flowing Poly-Georgette',
+      careInstructions: 'Gentle hand wash cold. Drip dry in shade.',
+      specifications: {
+        'Silhouette': 'Free-size Tiered Kaftan',
+        'Length': '54 Inches',
+        'Tie': 'Interior adjustable waist drawstring'
+      },
+      tags: ['Kaftan', 'Dresses', 'Party Wear', 'Comfort'],
+      totalStock: 14,
+      lowStockThreshold: 3,
+      averageRating: 4.9,
+      reviewCount: 7,
+      createdAt: new Date(Date.now() - 18 * 86400000).toISOString(),
+      updatedAt: new Date().toISOString(),
+      variants: [
+        {
+          id: 'var_prod_8_onesize',
+          productId: 'prod_8',
+          title: 'Pastel Orchid / Free Size',
+          size: 'Free Size',
+          color: 'Pastel Orchid',
+          colorHex: '#C654C3',
+          sku: 'LGC-DR-008-PAS-FS',
+          price: 7200,
+          compareAtPrice: 8500,
+          stockQuantity: 14,
+          isAvailable: true
+        }
+      ]
+    }
+  ];
+
+  const users = [
+    {
+      id: 'usr_admin',
+      name: 'Aliaqat Admin',
+      email: 'admin@ladiescomfort.com',
+      passwordHash: hash('admin123'),
+      phone: '+92 300 1234567',
+      role: 'super_admin',
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80',
+      addresses: [
+        {
+          id: 'addr_adm_1',
+          fullName: 'Ladies Garments Comfort HQ',
+          phone: '+92 300 1234567',
+          street: 'Plot 42, Block 6, Gulberg III',
+          apartment: 'Design Studio 4B',
+          city: 'Lahore',
+          provinceOrState: 'Punjab',
+          postalCode: '54000',
+          country: 'Pakistan',
+          isDefault: true
+        }
+      ],
+      createdAt: new Date(Date.now() - 60 * 86400000).toISOString(),
+      totalSpent: 0,
+      orderCount: 0,
+      tags: ['Founder', 'Super Admin']
+    },
+    {
+      id: 'usr_customer_1',
+      name: 'Aroosa Liaqat',
+      email: 'aroosa@example.com',
+      passwordHash: hash('customer123'),
+      phone: '+92 321 9876543',
+      role: 'customer',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80',
+      addresses: [
+        {
+          id: 'addr_cust_1',
+          fullName: 'Aroosa Liaqat',
+          phone: '+92 321 9876543',
+          street: 'House 18, Street 7, Sector F-8/2',
+          apartment: '',
+          city: 'Islamabad',
+          provinceOrState: 'Islamabad Capital Territory',
+          postalCode: '44000',
+          country: 'Pakistan',
+          isDefault: true
+        }
+      ],
+      createdAt: new Date(Date.now() - 30 * 86400000).toISOString(),
+      totalSpent: 15300,
+      orderCount: 2,
+      tags: ['VIP Customer', 'Verified Buyer']
+    },
+    {
+      id: 'usr_customer_2',
+      name: 'Hira Shah',
+      email: 'hira@example.com',
+      passwordHash: hash('customer123'),
+      phone: '+92 333 4567890',
+      role: 'customer',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+      addresses: [
+        {
+          id: 'addr_cust_2',
+          fullName: 'Hira Shah',
+          phone: '+92 333 4567890',
+          street: 'Apartment 304, Creek Vistas, Phase 8 DHA',
+          city: 'Karachi',
+          provinceOrState: 'Sindh',
+          postalCode: '75500',
+          country: 'Pakistan',
+          isDefault: true
+        }
+      ],
+      createdAt: new Date(Date.now() - 20 * 86400000).toISOString(),
+      totalSpent: 4950,
+      orderCount: 1,
+      tags: ['Repeat Customer']
+    }
+  ];
+
+  const orders = [
+    {
+      id: 'ord_seeded_1',
+      orderNumber: 'LGC-2026-1042',
+      trackingNumber: 'TRK-984210',
+      userId: 'usr_customer_1',
+      isGuest: false,
+      customerName: 'Aroosa Liaqat',
+      customerEmail: 'aroosa@example.com',
+      customerPhone: '+92 321 9876543',
+      shippingAddress: {
+        id: 'addr_cust_1',
+        fullName: 'Aroosa Liaqat',
+        phone: '+92 321 9876543',
+        street: 'House 18, Street 7, Sector F-8/2',
+        city: 'Islamabad',
+        provinceOrState: 'Islamabad Capital Territory',
+        postalCode: '44000',
+        country: 'Pakistan',
+        isDefault: true
+      },
+      items: [
+        {
+          id: 'oi_1',
+          productId: 'prod_1',
+          variantId: 'var_prod_1_m',
+          name: 'Gul-e-Maryam Embroidered 3-Piece Lawn',
+          sku: 'LGC-3P-001-LIL-M',
+          size: 'M',
+          color: 'Lilac Dusk',
+          image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&auto=format&fit=crop&q=80',
+          price: 8450,
+          quantity: 1,
+          total: 8450
+        },
+        {
+          id: 'oi_2',
+          productId: 'prod_2',
+          variantId: 'var_prod_2_m',
+          name: 'Rose Quartz Raw Silk Luxury Pret Kurti',
+          sku: 'LGC-PR-002-BLU-M',
+          size: 'M',
+          color: 'Soft Blush',
+          image: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&auto=format&fit=crop&q=80',
+          price: 6850,
+          quantity: 1,
+          total: 6850
+        }
+      ],
+      subtotal: 15300,
+      discountAmount: 0,
+      taxAmount: 0,
+      shippingFee: 0,
+      total: 15300,
+      currency: 'PKR',
+      paymentMethod: 'card',
+      paymentStatus: 'paid',
+      paymentDetails: {
+        transactionId: 'txn_948291048',
+        cardLast4: '4242',
+        gateway: 'Simulated 3D Gateway'
+      },
+      orderStatus: 'delivered',
+      timeline: [
+        {
+          id: 'evt_1',
+          status: 'pending',
+          timestamp: new Date(Date.now() - 7 * 86400000).toISOString(),
+          note: 'Order placed by customer online.'
+        },
+        {
+          id: 'evt_2',
+          status: 'confirmed',
+          timestamp: new Date(Date.now() - 7 * 86400000 + 1800000).toISOString(),
+          note: 'Payment verified and order approved.'
+        },
+        {
+          id: 'evt_3',
+          status: 'processing',
+          timestamp: new Date(Date.now() - 6 * 86400000).toISOString(),
+          note: 'Items picked from inventory and sent to QA.'
+        },
+        {
+          id: 'evt_4',
+          status: 'packed',
+          timestamp: new Date(Date.now() - 6 * 86400000 + 7200000).toISOString(),
+          note: 'Packed in luxury satin-finished gift packaging.'
+        },
+        {
+          id: 'evt_5',
+          status: 'shipped',
+          timestamp: new Date(Date.now() - 5 * 86400000).toISOString(),
+          note: 'Handed over to TCS Courier. Tracking TRK-984210'
+        },
+        {
+          id: 'evt_6',
+          status: 'out_for_delivery',
+          timestamp: new Date(Date.now() - 4 * 86400000).toISOString(),
+          note: 'Rider is on the way for final delivery.'
+        },
+        {
+          id: 'evt_7',
+          status: 'delivered',
+          timestamp: new Date(Date.now() - 4 * 86400000 + 14400000).toISOString(),
+          note: 'Delivered and signed by recipient.'
+        }
+      ],
+      courierInfo: {
+        courierName: 'TCS Express Pakistan',
+        trackingCode: 'TRK-984210',
+        trackingUrl: 'https://www.tcsexpress.com/tracking?track=TRK-984210',
+        estimatedDelivery: 'Delivered on Oct 27'
+      },
+      customerNotes: 'Please ring the front bell upon arrival.',
+      createdAt: new Date(Date.now() - 7 * 86400000).toISOString(),
+      updatedAt: new Date(Date.now() - 4 * 86400000).toISOString()
+    },
+    {
+      id: 'ord_seeded_2',
+      orderNumber: 'LGC-2026-1089',
+      trackingNumber: 'TRK-741920',
+      userId: 'usr_customer_2',
+      isGuest: false,
+      customerName: 'Hira Shah',
+      customerEmail: 'hira@example.com',
+      customerPhone: '+92 333 4567890',
+      shippingAddress: {
+        id: 'addr_cust_2',
+        fullName: 'Hira Shah',
+        phone: '+92 333 4567890',
+        street: 'Apartment 304, Creek Vistas, Phase 8 DHA',
+        city: 'Karachi',
+        provinceOrState: 'Sindh',
+        postalCode: '75500',
+        country: 'Pakistan',
+        isDefault: true
+      },
+      items: [
+        {
+          id: 'oi_3',
+          productId: 'prod_3',
+          variantId: 'var_prod_3_m',
+          name: 'Zaffran Printed 2-Piece Linen Co-Ord Set',
+          sku: 'LGC-2P-003-OCH-M',
+          size: 'M',
+          color: 'Royal Ochre',
+          image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&auto=format&fit=crop&q=80',
+          price: 4950,
+          quantity: 1,
+          total: 4950
+        }
+      ],
+      subtotal: 4950,
+      discountAmount: 0,
+      taxAmount: 0,
+      shippingFee: 250,
+      total: 5200,
+      currency: 'PKR',
+      paymentMethod: 'cod',
+      paymentStatus: 'pending',
+      orderStatus: 'shipped',
+      timeline: [
+        {
+          id: 'evt_21',
+          status: 'pending',
+          timestamp: new Date(Date.now() - 2 * 86400000).toISOString(),
+          note: 'Cash on Delivery order placed.'
+        },
+        {
+          id: 'evt_22',
+          status: 'confirmed',
+          timestamp: new Date(Date.now() - 2 * 86400000 + 3600000).toISOString(),
+          note: 'Customer phone confirmation received.'
+        },
+        {
+          id: 'evt_23',
+          status: 'packed',
+          timestamp: new Date(Date.now() - 1 * 86400000).toISOString(),
+          note: 'Packed and dispatched.'
+        },
+        {
+          id: 'evt_24',
+          status: 'shipped',
+          timestamp: new Date(Date.now() - 12 * 3600000).toISOString(),
+          note: 'In transit via Leopards Courier Karachi Hub.'
+        }
+      ],
+      courierInfo: {
+        courierName: 'Leopards Courier Service',
+        trackingCode: 'TRK-741920',
+        trackingUrl: 'https://leopardscourier.com/tracking?track=TRK-741920',
+        estimatedDelivery: 'Tomorrow by 4:00 PM'
+      },
+      createdAt: new Date(Date.now() - 2 * 86400000).toISOString(),
+      updatedAt: new Date(Date.now() - 12 * 3600000).toISOString()
+    }
+  ];
+
+  const reviews = [
+    {
+      id: 'rev_1',
+      productId: 'prod_1',
+      productName: 'Gul-e-Maryam Embroidered 3-Piece Lawn',
+      orderId: 'ord_seeded_1',
+      userId: 'usr_customer_1',
+      userName: 'Aroosa Liaqat',
+      rating: 5,
+      title: 'Remarkable comfort & luxury finish!',
+      comment: 'The quality of the lawn is truly exceptional. It feels featherlight yet opaque and soft against the skin. The pure silk dupatta drapes like a dream. Ladies Garments Comfort has truly mastered both elegance and ease.',
+      images: [
+        'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&auto=format&fit=crop&q=80'
+      ],
+      isVerifiedPurchase: true,
+      status: 'approved',
+      createdAt: new Date(Date.now() - 3 * 86400000).toISOString()
+    },
+    {
+      id: 'rev_2',
+      productId: 'prod_2',
+      productName: 'Rose Quartz Raw Silk Luxury Pret Kurti',
+      orderId: 'ord_seeded_1',
+      userId: 'usr_customer_1',
+      userName: 'Aroosa Liaqat',
+      rating: 5,
+      title: 'Stunning craftsmanship',
+      comment: 'The pearl detailing and clean organza borders are gorgeous. Received so many compliments at a family lunch. Sizing is true to chart!',
+      images: [],
+      isVerifiedPurchase: true,
+      status: 'approved',
+      createdAt: new Date(Date.now() - 3 * 86400000).toISOString()
+    }
+  ];
+
+  const coupons = [
+    {
+      id: 'cpn_1',
+      code: 'WELCOME10',
+      type: 'percentage',
+      value: 10,
+      minOrderAmount: 2000,
+      maxDiscountAmount: 2000,
+      startDate: new Date(Date.now() - 30 * 86400000).toISOString(),
+      endDate: new Date(Date.now() + 60 * 86400000).toISOString(),
+      usageLimit: 500,
+      usageCount: 42,
+      isActive: true,
+      description: '10% off on your first luxury order (Min PKR 2,000)'
+    },
+    {
+      id: 'cpn_2',
+      code: 'COMFORT500',
+      type: 'fixed',
+      value: 500,
+      minOrderAmount: 3500,
+      startDate: new Date(Date.now() - 15 * 86400000).toISOString(),
+      endDate: new Date(Date.now() + 45 * 86400000).toISOString(),
+      usageLimit: 300,
+      usageCount: 88,
+      isActive: true,
+      description: 'Flat Rs. 500 off on orders over Rs. 3,500'
+    },
+    {
+      id: 'cpn_3',
+      code: 'FREESHIP',
+      type: 'fixed',
+      value: 250,
+      minOrderAmount: 2500,
+      startDate: new Date(Date.now() - 10 * 86400000).toISOString(),
+      endDate: new Date(Date.now() + 90 * 86400000).toISOString(),
+      usageCount: 65,
+      isActive: true,
+      description: 'Free shipping on all items'
+    }
+  ];
+
+  const storeSettings = {
+    storeName: 'Ladies Garments Comfort',
+    logoText: 'Ladies Garments Comfort',
+    tagline: 'Style That Feels Like Comfort',
+    currency: 'PKR',
+    currencySymbol: 'Rs.',
+    taxRatePercentage: 0,
+    standardShippingFee: 250,
+    freeShippingThreshold: 5000,
+    supportEmail: 'care@ladiesgarmentscomfort.com',
+    supportPhone: '+92 42 3578 9900',
+    address: 'Plot 42, Main Boulevard, Gulberg III, Lahore, Pakistan',
+    city: 'Lahore',
+    country: 'Pakistan',
+    maintenanceMode: false,
+    allowGuestCheckout: true,
+    orderNumberPrefix: 'LGC',
+    returnWindowDays: 14,
+    bankDetails: {
+      bankName: 'Meezan Bank Limited',
+      accountTitle: 'Ladies Garments Comfort Pvt Ltd',
+      accountNumber: '02010108945621',
+      iban: 'PK45MEZN0002010108945621',
+      branchCode: '0201 (Gulberg Lahore)'
+    }
+  };
+
+  const heroBanners = [
+    {
+      id: 'banner_1',
+      title: 'Style That Feels Like Comfort',
+      subtitle: 'Discover elegant everyday fashion designed to make every moment feel beautiful.',
+      badge: 'SPRING / SUMMER 2026',
+      ctaText: 'Shop Now',
+      ctaLink: '/shop',
+      secondaryCtaText: 'Explore Collection',
+      secondaryCtaLink: '/shop?category=luxury-pret',
+      imageUrl: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=1600&auto=format&fit=crop&q=80',
+      isActive: true
+    }
+  ];
+
+  const supportTickets = [
+    {
+      id: 'tkt_1',
+      ticketNumber: 'TKT-49201',
+      userId: 'usr_customer_1',
+      customerName: 'Aroosa Liaqat',
+      customerEmail: 'aroosa@example.com',
+      customerPhone: '+92 321 9876543',
+      subject: 'Inquiry about customized sleeve alteration',
+      category: 'product',
+      status: 'resolved',
+      priority: 'medium',
+      messages: [
+        {
+          id: 'msg_1',
+          sender: 'customer',
+          senderName: 'Aroosa Liaqat',
+          message: 'Hello, can the sleeves on Gul-e-Maryam 3-piece suit be tailored to full length?',
+          timestamp: new Date(Date.now() - 5 * 86400000).toISOString()
+        },
+        {
+          id: 'msg_2',
+          sender: 'staff',
+          senderName: 'Fatima (Store Stylist)',
+          message: 'Dear Aroosa, yes absolutely! All our unstitched and ready-to-wear pieces include generous fabric allowances for full sleeve styling. Thank you for choosing Ladies Garments Comfort!',
+          timestamp: new Date(Date.now() - 5 * 86400000 + 3600000).toISOString()
+        }
+      ],
+      createdAt: new Date(Date.now() - 5 * 86400000).toISOString(),
+      updatedAt: new Date(Date.now() - 5 * 86400000 + 3600000).toISOString()
+    }
+  ];
+
+  const notifications = [
+    {
+      id: 'notif_seed_1',
+      forAdmin: true,
+      title: 'New Order Received',
+      message: 'Order LGC-2026-1089 placed by Hira Shah for Rs. 5,200.',
+      type: 'order',
+      isRead: false,
+      link: '/admin/orders',
+      createdAt: new Date(Date.now() - 2 * 86400000).toISOString()
+    }
+  ];
+
+  const inventoryTransactions = [
+    {
+      id: 'tx_init_1',
+      productId: 'prod_1',
+      productName: 'Gul-e-Maryam Embroidered 3-Piece Lawn',
+      type: 'stock_in',
+      quantity: 35,
+      previousStock: 0,
+      newStock: 35,
+      reason: 'Initial Batch Intake from Lahore Workshop',
+      createdAt: new Date(Date.now() - 15 * 86400000).toISOString(),
+      createdBy: 'Aliaqat Admin'
+    }
+  ];
+
+  const newsletterSubscribers = [
+    {
+      id: 'sub_1',
+      email: 'aroosa@example.com',
+      subscribedAt: new Date(Date.now() - 20 * 86400000).toISOString(),
+      isActive: true
+    },
+    {
+      id: 'sub_2',
+      email: 'hira@example.com',
+      subscribedAt: new Date(Date.now() - 15 * 86400000).toISOString(),
+      isActive: true
+    }
+  ];
+
+  return {
+    categories,
+    collections,
+    products,
+    users,
+    orders,
+    reviews,
+    coupons,
+    storeSettings,
+    heroBanners,
+    supportTickets,
+    notifications,
+    inventoryTransactions,
+    newsletterSubscribers
+  };
+}
